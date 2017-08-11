@@ -1,0 +1,6 @@
+#是否开启事务代理
+transaction.isProxy=true
+#等待事务两阶段提交结果超时配置
+transaction.callModel=sync
+transaction.callTimeoutPerLoop=10
+transaction.callTimeoutLoops=6000

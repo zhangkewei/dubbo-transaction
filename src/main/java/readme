@@ -1,0 +1,46 @@
+#provider
+<bean id="transactionManager" class="me.zkevin.transaction.jdbc.datasource.DubboTransactionDataSourceTransactonManager" init-method="transactionStart">
+    <property name="dataSource" ref="dataSource" />
+</bean>
+
+
+
+#consumer
+#spring mvc
+<bean id="transactionHook" class="me.zkevin.transaction.support.DefaultSessionHook"/>
+<bean class="com.chit.sso.server.interceptor.ExceptionResolver"></bean>
+<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+    <property name="interceptors">
+        <list>
+            <bean class="me.zkevin.transaction.support.interceptor.spring.DefaultMethodHandler">
+                <property name="hook" ref="transactionHook"/>
+            </bean>
+        </list>
+    </property>
+</bean>
+
+
+#servlet web.xml
+<listener>
+		<listener-class>me.zkevin.transaction.support.interceptor.servlet.DefaultServletListener</listener-class>
+</listener>
+
+#-D || dubbo-transaction.properties
+
+transaction.contextCount
+transaction.contextClass
+transaction.ip
+transaction.port
+#transaction.commitOn
+transaction.executeWorkerSize
+transaction.bootstrapSize
+transaction.channelSize
+transaction.callTimeoutPerLoop
+transaction.callTimeoutLoops
+transaction.isProxy
+
+
+
+
+
+

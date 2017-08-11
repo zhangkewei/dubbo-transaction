@@ -1,0 +1,6 @@
+#等待事务两阶段提交结果超时配置
+transaction.callModel=sync
+#当前服务两阶段事务服务ip与端口
+transaction.port=8910
+#两阶段事务工作线程数量
+transaction.executeWorkerSize=20
