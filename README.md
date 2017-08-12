@@ -1,15 +1,15 @@
 # dubbo-transaction
 基于dubbo2.5.3的两阶段提交分布式数据库事务;
 
-##dubbo provider
+## dubbo provider
 	<bean id="transactionManager" class="me.zkevin.transaction.jdbc.datasource.DubboTransactionDataSourceTransactonManager" init-method="transactionStart">
     	<property name="dataSource" ref="dataSource" />
 	</bean>
 
 
 
-##dubbo consumer
-###spring mvc
+## dubbo consumer
+### spring mvc
 	<bean id="transactionHook" class="me.zkevin.transaction.support.DefaultSessionHook"/>
 	<bean class="com.chit.sso.server.interceptor.ExceptionResolver"></bean>
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
@@ -23,7 +23,7 @@
 	</bean>
 
 
-###servlet web.xml
+### servlet web.xml
 	<listener>
 		<listener-class>me.zkevin.transaction.support.interceptor.servlet.DefaultServletListener</listener-class>
 	</listener>
