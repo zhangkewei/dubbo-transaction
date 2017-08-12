@@ -11,7 +11,6 @@
 ## dubbo consumer
 ### spring mvc
 	<bean id="transactionHook" class="me.zkevin.transaction.support.DefaultSessionHook"/>
-	<bean class="com.chit.sso.server.interceptor.ExceptionResolver"></bean>
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
     	<property name="interceptors">
        	 	<list>
