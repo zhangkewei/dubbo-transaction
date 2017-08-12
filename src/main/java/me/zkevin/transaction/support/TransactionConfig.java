@@ -41,7 +41,7 @@ import java.util.Properties;
  * 系统配置参数
  */
 public class TransactionConfig {
-    private static final String TRANSACTION_PROPERTIES="/chit-transaction.properties";
+    private static final String TRANSACTION_PROPERTIES="/dubbo-transaction.properties";
     public static final String COMMIT_AUTO="auto";
     public static final String COMMIT_HAND="hand";
     public static final String CALL_SYNC_FINITY="syncFinity";
@@ -52,7 +52,7 @@ public class TransactionConfig {
     //hash映射对象池数量
     private String contextCount="2";
     //hash映射对象池实现class
-    private String contextClass="com.chit.transaction.context.DBTransactionContext";
+    private String contextClass="me.zkevin.transaction.context.DBTransactionContext";
     //事务netty服务器ip、端口配置
     private String commitAddr;
     //事务默认提交开关(预留暂不可用)
